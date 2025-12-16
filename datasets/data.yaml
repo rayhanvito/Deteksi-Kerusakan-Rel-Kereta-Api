@@ -1,0 +1,13 @@
+train: C:/Users/rayha/Documents/Detector Rail Kereta Api/datasets/train/images
+val: C:/Users/rayha/Documents/Detector Rail Kereta Api/datasets/valid/images
+test: C:/Users/rayha/Documents/Detector Rail Kereta Api/datasets/test/images
+
+nc: 7
+names: ['fishplate', 'fishplate_bolthead', 'fishplate_boltmissing', 'fishplate_boltnut', 'track_bolt', 'track_boltmissing', 'track_crack']
+
+roboflow:
+  workspace: kerusakan-rel-kereta
+  project: railway-track-fault-detection-fgbu5-eys2z
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/kerusakan-rel-kereta/railway-track-fault-detection-fgbu5-eys2z/dataset/1

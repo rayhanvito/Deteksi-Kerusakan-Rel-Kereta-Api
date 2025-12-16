@@ -1,0 +1,75 @@
+version: '3.8'
+
+services:
+  # Backend API Service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: railway-api
+    ports:
+      - "8000:8000"
+    environment:
+      - MODEL_PATH=models/best.pt
+      - DEVICE=cpu
+      - CONFIDENCE_THRESHOLD=0.25
+      - IOU_THRESHOLD=0.45
+    volumes:
+      - ./backend/models:/app/models
+      - ./backend/uploads:/app/uploads
+    restart: unless-stopped
+    networks:
+      - railway-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Frontend Web Service
+  frontend:
+    image: nginx:alpine
+    container_name: railway-frontend
+    ports:
+      - "3000:80"
+    volumes:
+      - ./frontend:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - railway-network
+
+  # Optional: Redis untuk caching (production)
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: railway-redis
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - redis-data:/data
+  #   restart: unless-stopped
+  #   networks:
+  #     - railway-network
+
+networks:
+  railway-network:
+    driver: bridge
+
+volumes:
+  redis-data:
+
+# ============================================
+# CARA PAKAI:
+# ============================================
+# 1. Pastikan struktur folder sudah benar
+# 2. Model best.pt ada di backend/models/
+# 3. Jalankan: docker-compose up -d
+# 4. Akses:
+#    - Frontend: http://localhost:3000
+#    - Backend API: http://localhost:8000
+#    - API Docs: http://localhost:8000/docs
+# 5. Stop: docker-compose down
+# 6. Logs: docker-compose logs -f

@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+training*.txt
+
+# Test files (temporary)
+test_*.py
+train*.py
+
+# Datasets (large files - download during setup)
+datasets/train/images/*
+datasets/valid/images/*
+datasets/test/images/*
+!datasets/data.yaml
+!datasets/.gitkeep
+
+# Model cache
+runs/
+yolov5/
+*.pt
+
+# Environment
+.env
+.env.local
+
+# OS
+*.bak
+Thumbs.db
+
+# Misc
+.cache/
+server.log
