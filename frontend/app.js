@@ -1,7 +1,10 @@
-// API Configuration
-const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-    ? 'http://127.0.0.1:8000'
-    : (process.env.VITE_API_URL || 'https://deteksi-kerusakan-backend.up.railway.app');
+// -----------------------------------------------------------------------------
+// !! IMPORTANT !!
+// GANTI URL DI BAWAH INI DENGAN URL BACKEND RAILWAY ANDA
+// Contoh: const API_URL = 'https://backend-anda-di-railway.up.railway.app';
+// -----------------------------------------------------------------------------
+const API_URL = 'https://deteksi-kerusakan-backend.up.railway.app';
+// -----------------------------------------------------------------------------
 
 console.log('API URL:', API_URL);
 

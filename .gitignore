@@ -37,7 +37,6 @@ datasets/test/images/*
 # Model cache
 runs/
 yolov5/
-*.pt
 
 # Environment
 .env
