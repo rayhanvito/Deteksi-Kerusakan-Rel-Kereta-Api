@@ -1,0 +1,16 @@
+backend/
+datasets/
+yolov5/
+*.log
+.git/
+.gitignore
+README.md
+docker-compose.yml
+Procfile
+run.bat
+run.sh
+upload-github.bat
+DEPLOYMENT.md
+DEPLOYMENT_READY.md
+GITHUB_UPLOAD.md
+STRUCTURE.md

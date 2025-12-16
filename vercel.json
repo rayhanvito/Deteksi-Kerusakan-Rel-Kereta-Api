@@ -1,0 +1,15 @@
+{
+  "buildCommand": "cd frontend && npm install",
+  "devCommand": "cd frontend && python -m http.server 3000",
+  "outputDirectory": "frontend",
+  "env": {
+    "VITE_API_URL": "@api_url"
+  },
+  "envPrefix": "VITE_",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
