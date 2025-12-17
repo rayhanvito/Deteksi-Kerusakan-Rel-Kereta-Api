@@ -1,0 +1,33 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+*.md
+
+# Frontend - not needed for backend build
+frontend/
+
+# Datasets - very large and not needed for inference
+datasets/
+
+# YOLOv5 source clone (if present) - library is installed via pip
+yolov5/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local config
+.env
+
+# Other deployment/config files not needed in the image
+.vercelignore
+vercel.json
+docker-compose.yml
+Procfile
+run.bat
+run.sh
+railway.toml
