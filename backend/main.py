@@ -33,7 +33,7 @@ app.add_middleware(
 )
 
 # Load YOLOv5 model
-MODEL_PATH = "../models/best.pt"
+MODEL_PATH = "models/best.pt"
 model = None
 model_error = None
 
